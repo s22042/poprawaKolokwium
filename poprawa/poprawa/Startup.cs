@@ -11,6 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using poprawa.Services;
+using poprawa.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace poprawa
 {
@@ -26,7 +29,8 @@ namespace poprawa
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddScoped<IDbService, DbService>();
+            services.AddDbContext<MainDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("Default"))
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
