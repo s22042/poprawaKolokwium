@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace poprawa.Models
 {
-    public class Team
+    public class Member
     {   [Key]
-        public int TeamId { get; set; }
+        public int MemberId { get; set; }
         [Required]
         public int OrganizationId { get; set; }
+        [Required, MaxLength(20)]
+        public string MemberName { get; set; }
         [Required, MaxLength(50)]
-        public string TeamName { get; set; }
-        [MaxLength(500)]
-        public string TeamDescription { get; set; }
-        [ForeignKey("OrganizationID")]
+        public string MemberSurname { get; set; }
+        [MaxLength(20)]
+        public string MemberNickName { get; set; }
+        [ForeignKey("OrganizationId")]
         public virtual Organization Organization { get; set; }
-        public virtual ICollection<File> Files { get; set; }
     }
 }

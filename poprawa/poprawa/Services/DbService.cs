@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace poprawa.Services
 {
-    public class DbService
+    public class DbService : IDbService
     {
     }
 }

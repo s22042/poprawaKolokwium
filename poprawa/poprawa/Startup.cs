@@ -30,7 +30,7 @@ namespace poprawa
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IDbService, DbService>();
-            services.AddDbContext<MainDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("Default"))
+            services.AddDbContext<MainDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

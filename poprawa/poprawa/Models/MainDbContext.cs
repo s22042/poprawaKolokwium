@@ -16,7 +16,11 @@ namespace poprawa.Models
         protected MainDbContext()
         {
         }
-
+        public DbSet<Organization> Organizations { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<File> Files { get; set; }
+        public DbSet<Member> Members { get; set; }
+        public DbSet<Membership> Memberships { get; set; }
 
 
 
@@ -24,8 +28,17 @@ namespace poprawa.Models
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<File>(p => {
 
+                p.HasKey(u => new { u.FileId, u.TeamId });
+            
+            });
 
+            modelBuilder.Entity<Membership>(p => {
+
+                p.HasKey(u => new { u.MemberId, u.TeamId });
+
+            });
 
 
         }
