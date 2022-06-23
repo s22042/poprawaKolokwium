@@ -20,5 +20,6 @@ namespace poprawa.Models
         public string MemberNickName { get; set; }
         [ForeignKey("OrganizationId")]
         public virtual Organization Organization { get; set; }
+        public virtual ICollection<Membership> Memberships { get; set; }
     }
 }

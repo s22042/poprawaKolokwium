@@ -19,5 +19,6 @@ namespace poprawa.Models
         [ForeignKey("OrganizationID")]
         public virtual Organization Organization { get; set; }
         public virtual ICollection<File> Files { get; set; }
+        public virtual ICollection<Membership> Memberships { get; set; }
     }
 }
